@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col-md-6 mb-4 mb-md-0">
+        <div class="form-group">
+        <input type="text" #fname id="fname" class="form-control">
+        <label for="fname"></label>
+        </div>
+
+        <div class="form-group">
+            <input type="text" #lname id="lname" class="form-control">
+            <label for="lname"></label>
+            </div>
+
+            <div class="form-group">
+                <input type="email" #email id="email" class="form-control">
+                <label for="email"></label>
+                </div>
+
+                <div class="form-group">
+                    <input type="tel" #contact id="contact" class="form-control">
+                    <label for="contact"></label>
+                    </div>
+                    <button type="button"  (click)="onstuAdd()" class="btn btn-info-primary btn-outline-dark btn-block" >Add Student</button>
+          
+        <div class="col-md-8">
+        <table *ngIf="stdArray.length > 0; else nostu" class="table table-bordered">
+<thead>
+ <tr  >
+    <th>Srno</th>
+    <th>Fname</th>
+    <th>Lname</th>
+    <th>Email</th>
+    <th>Contact</th>
+ </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let stu of stdArray; let i=index">
+        <td>{{i+1}}</td>
+        <td>{{stu.fname}}</td>
+        <td>{{stu.lname}}</td>
+        <td>{{stu.email}}</td>
+        <td>{{stu.contact}}</td>
+    </tr>
+  
+</tbody>
+
+        </table>
+        <ng-template #nostu>
+            <p class="alert alert-info">
+                No studentitem Added Yet!!!!!!!!!!!!
+            </p>
+        </ng-template>
+        </div>
+    </div>
+
+</div>
